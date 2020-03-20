@@ -1,0 +1,32 @@
+<div class="forms">
+  <h3 class="title1">Forms</h3>
+  <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+      <div class="form-title">
+          <h4>Basic Form :</h4>
+      </div>
+      <div class="form-body">
+          <form #f="ngForm" (ngSubmit)="onUpload(f)">
+              <div class="form-group">
+                  <label>Offer Name</label>
+                  <input type="hidden" [(ngModel)]="off_id" name="offerid1" ngModel />
+                  <input type="text" class="form-control" [(ngModel)]="off_name" name="offername1"  placeholder="Offer Name"
+                      ngModel required="">
+              </div>
+
+              <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" #file (change)="onFileChanged($event,file.files)" name="image"
+                      id="exampleInputFile" ngModel > 
+                  <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+                  <!-- <p class="help-block">Example block-level help text here.</p> -->
+              </div>
+              <!-- <div class="checkbox">
+                  <label> <input type="checkbox"> Check me out </label>
+              </div> -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+  </div>
+
+</div>

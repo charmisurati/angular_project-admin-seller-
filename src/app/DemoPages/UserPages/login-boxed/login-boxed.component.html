@@ -1,0 +1,49 @@
+<form  #f="ngForm" (ngSubmit)="loginaction(f)">
+<div class="h-100 bg-plum-plate bg-animation">
+  <div class="d-flex h-100 justify-content-center align-items-center">
+    <div class="mx-auto app-login-box col-md-8">
+      <div class="app-logo-inverse mx-auto mb-3"></div>
+      <div class="modal-dialog w-100 mx-auto">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="h5 modal-title text-center">
+              
+              <h4 class="mt-2">
+                <div>Welcome back,</div>
+                <span>Please sign in to your account below.</span>
+              </h4>
+            </div>
+            
+            <div id="exampleInputGroup1" role="group" aria-describedby="exampleInputGroup1__BV_description_"
+                 class="form-group">
+              <div><input id="exampleInput1" type="email" placeholder="Enter email..." required="required"
+                          aria-required="true" class="form-control"
+                          aria-describedby="exampleInputGroup1__BV_description_" name="email" ngModel>
+                
+              </div>
+            </div>
+            <div id="exampleInputGroup2" role="group" class="form-group">
+              <div><input id="exampleInput2" type="password" placeholder="Enter password..." required="required"
+                          aria-required="true" class="form-control" name="password" ngModel></div>
+            </div>
+            
+          
+            <div class="divider"></div>
+            <h6 class="mb-0">
+              No account?
+              <a routerLink="/pages/register-boxed" class="text-primary">Sign up now</a></h6></div>
+          <div class="modal-footer clearfix">
+         
+            <div class="float-right">
+              <button type="submit" class="btn btn-primary btn-lg">Login to Dashboard</button>
+            </div>
+       
+          </div>
+        
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+</form>

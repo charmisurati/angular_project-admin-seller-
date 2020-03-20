@@ -1,0 +1,131 @@
+<form #form ="ngForm" (ngSubmit)="signup(form.value)">
+  <div class="h-100 bg-premium-dark">
+    <div class="d-flex h-100 justify-content-center align-items-center">
+      <div class="mx-auto app-login-box col-md-8">
+        <div class="app-logo-inverse mx-auto mb-3"></div>
+        <div class="modal-dialog w-100">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h5 class="modal-title">
+                <h4 class="mt-2">
+                  <div>Welcome,</div>
+                  <span>It only takes a <span class="text-success">few seconds</span> to create your account</span></h4>
+              </h5>
+              <div class="divider"></div>
+              <div id="exampleInputGroup1" role="group" aria-describedby="exampleInputGroup1__BV_description_"
+                   class="form-group">
+                   <div id="exampleInputGroup12" role="group" class="form-group">
+                    <div><input id="exampleInput12" type="text" placeholder="Enter username..." required="required"
+                                aria-required="true" class="form-control" name="username"  ngModel  #u_name="ngModel">
+
+
+                                <div class="alert alert-danger" *ngIf ="u_name.invalid && u_name.dirty">
+                      
+                                  <div *ngIf = "u_name.errors.required">
+                                     this filed is requreid
+          
+                                  </div>
+                                  
+                               
+                              </div>
+                              
+                    </div>
+                  </div>
+                <div><input id="exampleInput1" type="email" placeholder="Enter email..." required="required" email
+                            aria-required="true" class="form-control"
+                            aria-describedby="exampleInputGroup1__BV_description_" name="email" ngModel  #email="ngModel">
+
+
+                            <div class="alert alert-danger" *ngIf ="email.invalid && email.dirty">
+                      
+                              <div *ngIf = "email.errors.required">
+                                 this filed is requreid
+      
+                              </div>
+                              <div *ngIf = "email.errors.email">
+                                  email is not valid
+       
+                               </div>
+                           
+                          </div>
+                  <small tabindex="-1" id="exampleInputGroup1__BV_description_" class="form-text text-muted">We'll never
+                    share your email with anyone else.
+                  </small>
+                </div>
+              </div>
+             
+              <div class="row">
+                <div class="col-md-6">
+                  <div id="exampleInputGroup2" role="group" class="form-group">
+                    <div><input id="exampleInput2" type="password" placeholder="Enter password..." required="required"
+                                aria-required="true" class="form-control" name="password" ngModel  #pass="ngModel">
+                              
+                                <div class="alert alert-danger" *ngIf ="pass.invalid && pass.dirty">
+                      
+                                  <div *ngIf = "pass.errors.required">
+                                     this filed is requreid
+          
+                                  </div>
+                                 
+                              </div>
+                              </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div id="exampleInputGroup2" role="group" class="form-group">
+                    <div><input id="exampleInput2" type="text" placeholder="Enter Contact No." required="required"
+                                aria-required="true" class="form-control" name="mobile" ngModel  #mob="ngModel">
+                              
+                              
+                                <div class="alert alert-danger" *ngIf ="mob.invalid && mob.dirty">
+                      
+                                  <div *ngIf = "mob.errors.required">
+                                     this filed is requreid
+          
+                                  </div>
+                                 
+                              </div>
+                              
+                              
+                              
+                              </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div id="exampleInputGroup12" role="group" class="form-group">
+                <div><input id="exampleInput12" type="text" placeholder="Enter Address..." required="required"
+                            aria-required="true" class="form-control" name="address" ngModel #add="ngModel">
+                          
+                            <div class="alert alert-danger" *ngIf ="add.invalid && add.dirty">
+                      
+                              <div *ngIf = "add.errors.required">
+                                 this filed is requreid
+      
+                              </div>
+                             
+                          </div>
+                          
+                          </div>
+              </div>
+  
+              
+              <!-- <div class="divider"></div> -->
+              <h6 class="mb-0">
+                Already have an account?
+                <a routerLink="/pages/login-boxed" class="text-primary">Sign in</a>
+                |
+                </h6></div>
+            <div class="modal-footer d-block text-center">
+              <button  type="submit"  [disabled]="form.invalid"
+                      class="btn btn-wide btn-pill btn-shadow btn-hover-shine btn-secondary btn-lg">Create Account
+              </button>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  </form>
+  

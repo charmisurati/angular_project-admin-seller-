@@ -1,0 +1,66 @@
+
+      <div class="conatiner" style="padding-top:20px;">  
+        <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;" >  
+             <input class="form-control" type="text" placeholder="Search......." [(ngModel)]="filter">        
+        </div> 
+      
+      <div class="tables">
+          <div class="panel-body widget-shadow">
+              <table class="table" >
+                  <thead>
+                      <tr >
+                        <th> ID</th>
+                        <th>USer Name</th>
+                        <th> Email</th>
+                        <th>Password</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let c of aarlist |filter:filter| paginate: { itemsPerPage: 6, currentPage: p };let i=index">
+                        <td>{{c.id}}</td>
+                        <td>{{c.username}}</td>
+                        <td>{{c.email}}</td>
+                        <td>{{c.password}}</td>
+                        <td>{{c.mobile}}</td>
+                        <td>{{c.address}}</td>
+                        <td>{{c.status}}</td>
+                        
+                        <td *ngIf="c.status==1" >
+                            <a  (click)="approveseller(c.id,i)">  
+                             <button type="button" class="btn btn-dark">Approve</button>
+                           </a> 
+                         </td>
+                          <td *ngIf="c.status==0" >
+
+                           <a  (click)="approveseller(c.id,i)">  
+                            <button type="button" class="btn btn-primary">Approve</button>
+                          </a> 
+                        </td>
+
+                        <td *ngIf="c.status==0">
+                          <a (click)="block(c.id,i)">
+                            <button type="button" class="btn btn-warning">Block</button>
+                          </a>
+                        </td>
+                        
+                        <td *ngIf="c.status==1">
+                                 <a  (click)="block(c.id,i)"> 
+                                  <button type="button" class="btn btn-danger">Block</button>
+                                     </a> 
+                        </td>
+                      </tr>
+                      
+                  </tbody>
+                  <ul class="pagination">  
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+                    </ul>
+              </table>
+          </div>
+        
+        
+      </div>
+ 

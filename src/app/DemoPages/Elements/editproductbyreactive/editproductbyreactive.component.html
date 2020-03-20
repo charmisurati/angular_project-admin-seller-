@@ -1,0 +1,60 @@
+
+<div class="forms">
+  <h3 class="title1">Forms</h3>
+  <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+      <div class="form-title">
+          <h4>Basic Form :</h4>
+      </div>
+      <div class="form-body">
+          <form [formGroup]="editform" (ngSubmit)="onUpload()">
+              <div class="form-group">
+                  <label>Product Name</label>
+                  <input type="hidden"   />
+                  <input type="text" class="form-control" formControlName="p_name" placeholder="Product Name"
+                     >
+              </div>
+
+              <div class="form-group">
+                  <label for="exampleInputFile">Product image</label>
+                  <input type="file" #file (change)="onFileChanged($event,file.files)" name="image"
+                      id="exampleInputFile" > 
+                  <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+              </div>
+              <div class="form-group">
+                  <label>Price before discount</label>
+                  
+                  <input type="text" class="form-control" formControlName="price_before_discount"  placeholder="price_before_discount"
+                     >
+              </div>
+              <div class="form-group">
+                  <label>Discount Amount</label>
+                  
+                  <input type="text" class="form-control" formControlName="discount_amount" placeholder="Discount amount"
+                     >
+              </div>
+              <div class="form-group">
+                  <label>Price after discount</label>
+                  
+                  <input type="text" class="form-control" formControlName="price_after_discount" placeholder="Price after discount"
+                      >
+              </div>
+              <div class="form-group">
+                  <label>Total Quantity</label>
+                  
+                  <input type="text" class="form-control" formControlName="total_qty"  placeholder="Total Quantity"
+                     >
+              </div>
+              <div class="form-group">
+                  <label>Valid Offer</label>
+                  
+                  <input type="text" class="form-control"  formControlName="valid_offer" placeholder="Valid Offer "
+                     >
+              </div>
+             
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+  </div>
+
+</div>

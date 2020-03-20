@@ -1,0 +1,60 @@
+<div class="conatiner" style="padding-top:20px;">  
+  <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;" >  
+       <input class="form-control" type="text" placeholder="Search......." [(ngModel)]="filter">        
+  </div> 
+</div>
+       <div class="tables">
+          
+          <div class="panel-body widget-shadow">
+              
+              <table class="table" >
+                  <thead>
+                      <tr >
+                        <th>Product ID</th>
+                        <th>Company ID</th>
+                        <th>Product Name</th>
+                        <th>Offer Name</th>
+                        <th>Product Image</th>
+                        <th>Price before discount</th>
+                        <th>Discount Amount</th>
+                        <th>Price after discount</th>
+                        <th>Total Quantity</th>
+                        <th>Valid Offer</th>
+                      
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let c of aarlist | filter:filter| paginate: { itemsPerPage: 5, currentPage: p }">
+                        <td>{{c.product_id}}</td>
+                        <td>{{c.company_id}}</td>
+                        <td>{{c.product_name}}</td>
+                        <td>{{c.offer_name}}</td>
+                        <td> <img src="http://localhost/angular_services/images/{{c.product_image}}" width="100" height="100" /></td>
+                        <td>{{c.price_before_discount}}</td>
+                        <td>{{c.discount_amount}}</td>
+                        <td>{{c.price_after_discount}}</td>
+                        <td>{{c.total_quantity}}</td>
+                        <td>{{c.valid_offer}}</td>
+                     
+                        <td>
+                          <a [routerLink]="['/sellerlayout/editproduct',{product_id:c.product_id}]"> 
+                            <button type="button" class="btn btn-primary">Edit</button>
+                          </a>
+                        </td>
+                        <td>
+                                <a  (click)="deleteproduct(c.product_id)">
+                                  <button type="button" class="btn btn-danger">Delete</button>
+                                      </a>
+                        </td>
+                      </tr>
+                      
+                  </tbody>
+                  <ul class="pagination">  
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+                    </ul>  
+              </table>
+          </div>
+        
+        
+      </div>
+ 

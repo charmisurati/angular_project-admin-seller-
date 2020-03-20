@@ -1,0 +1,130 @@
+<div class="forms">
+	
+	<div class="form-grids row widget-shadow" data-example-id="basic-forms">
+		<div class="form-title" >
+			<h4 >Basic Form :</h4>
+		</div>
+		<div class="form-body">
+			<form [formGroup]="regForm" (ngSubmit)="addproduct()">
+				<div class="form-group">
+					<label>Product Name</label>
+					<input type="text" class="form-control" formControlName="p_name" id="productname" placeholder="product Name"
+                         >
+                    <div class="alert alert-danger" *ngIf ="regForm.controls.p_name.invalid && regForm.controls.p_name.dirty">
+                      
+                        <div *ngIf = "regForm.controls.p_name.errors.required">
+                           this filed is requreid
+
+                        </div>
+                        <div *ngIf = "regForm.controls.p_name.errors.email">
+                            email is not valid
+ 
+                         </div>
+                     
+                    </div>
+
+				</div>
+                    <div class="form-group">
+                            <label>Select Offer</label>
+                        <select class="form-control" formControlName="offer_id" >
+                            <option *ngFor="let c of aarlist" [value]="c.offer_id">
+                                {{c.offer_name}}
+                            </option>
+                        </select>    
+                    </div>
+                <div class="form-group" >
+                    <label>Price before Discount</label>
+                        <input type="text" class="form-control" formControlName="price_before_discount" id="totalprice" placeholder="Total Price"
+                             >
+
+                             <div class="alert alert-danger" *ngIf ="regForm.controls.price_before_discount.invalid && regForm.controls.price_before_discount.dirty">
+                      
+                                <div *ngIf = "regForm.controls.price_before_discount.errors.required">
+                                   this filed is requreid
+                                </div>
+
+                                <div *ngIf = "regForm.controls.price_before_discount.errors.pattern">
+                                    mobile not valid 
+                                 </div>
+                             
+                            </div>
+                </div>
+                <div class="form-group">
+                    <label>Discount Amount</label>
+                        <input type="text" class="form-control"  formControlName="discount_amount" id="discountamount" placeholder="Discount Amount"
+                               >
+                </div>
+                <div class="form-group">
+                    <label>Price after Discount</label>
+                        <input type="text" class="form-control" formControlName="price_after_discount"  id="price_after_discount" placeholder="Price after discount"
+                               >
+                </div>
+                <div class="form-group">
+                    <label>Total Quantity</label>
+                        <input type="text" class="form-control" formControlName="total_qty" id="totalquantity" placeholder="Total Quantity"
+                                 >
+                </div>
+                <div class="form-group">
+                    <label>Valid Offer</label>
+                        <input type="date" class="form-control" formControlName="valid_offer"  id="validoffer" placeholder="Valid Offer"
+                               >
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputFile">File input</label>
+					<input type="file" #file (change)="onFileChanged($event,file.files)" 
+						id="exampleInputFile"  > 
+					<img [src]="imgURL" height="200" *ngIf="imgURL">
+
+					<p class="help-block">Example block-level help text here.</p>
+				</div>
+				<div class="checkbox">
+					<label> <input type="checkbox"> Check me out </label>
+				</div>
+				<button type="submit" [disabled] = "regForm.invalid" class="btn btn-primary">Submit</button>
+            </form>
+            
+            <div>
+             
+              valid for form  {{regForm.valid}}
+              <br>
+               invalid for form  {{regForm.invalid}}
+               <br>
+              valid for  controls {{regForm.controls.p_name.valid}}
+
+              <br/>
+               invalid for controls  {{regForm.controls.p_name.invalid}}
+            </div>
+            
+
+            <div>
+             
+                touch for form  {{regForm.touched}}
+                <br>
+                 untouch for form  {{regForm.untouched}}
+                 <br>
+                  touch for  controls {{regForm.controls.p_name.touched}}
+  
+                <br/>
+                 untouch for controls  {{regForm.controls.p_name.untouched}}
+              </div>
+
+
+              <div>
+             
+                dirty for form  {{regForm.dirty}}
+                <br>
+                 pristine for form  {{regForm.pristine}}
+                 <br>
+                 dirty for  controls {{regForm.controls.p_name.dirty}}
+  
+                <br/>
+                pristine for controls  {{regForm.controls.p_name.pristine}}
+              </div>
+              
+
+
+		</div>
+	</div>
+
+</div>

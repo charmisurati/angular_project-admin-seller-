@@ -1,0 +1,77 @@
+<div class="forms">
+	
+	<div class="form-grids row widget-shadow" data-example-id="basic-forms">
+		<div class="form-title" >
+			<h4 >Basic Form :</h4>
+		</div>
+		<div class="form-body">
+			<form #f="ngForm" (ngSubmit)="addproduct(f)">
+				<div class="form-group">
+					<label>Product Name</label>
+					<input type="text" class="form-control" #p_name ="ngModel" name="product_name" id="productname" placeholder="product Name"  
+                        ngModel required="">
+                        <div class="alert alert-danger" *ngIf ="p_name.invalid && p_name.dirty">
+                      
+                            <div *ngIf = "p_name.errors.required">
+                               this filed is requreid
+    
+                            </div>
+                            <div *ngIf = "p_name.errors.email">
+                                email is not valid
+     
+                             </div>
+                         
+                        </div>
+
+				</div>
+                    <div class="form-group">
+                            <label>Select Offer</label>
+                        <select class="form-control" ngModel name="offer_id">
+                            <option *ngFor="let c of aarlist" [value]="c.offer_id">
+                                {{c.offer_name}}
+                            </option>
+                        </select>    
+                    </div>
+                <div class="form-group">
+                    <label>Price before Discount</label>
+                        <input type="text" class="form-control" name="price_before_discount" id="price_before_discount" placeholder="Total Price"
+                            ngModel  [(ngModel)]="price_before_discount"required="">
+                </div>
+                <div class="form-group">
+                    <label>Discount Amount</label>
+                        <input type="text" class="form-control" name="discount_amount" id="discountamount" placeholder="Discount Amount"
+                               ngModel [(ngModel)]="discount_amount" required="">
+                </div>
+                <div class="form-group">
+                    <label>Price after Discount</label>
+                        <input type="text" class="form-control" name="price_after_discount" id="price_after_discount" placeholder="Price after discount"
+                                ngModel="{{price_before_discount-(price_before_discount*discount_amount/100)}}" required="">
+                </div>
+                <div class="form-group">
+                    <label>Total Quantity</label>
+                        <input type="text" class="form-control" name="total_quantity" id="totalquantity" placeholder="Total Quantity"
+                                 ngModel required="">
+                </div>
+                <div class="form-group">
+                    <label>Valid Offer</label>
+                        <input type="date" class="form-control" name="valid_offer" id="validoffer" placeholder="Valid Offer"
+                                ngModel required="">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputFile">File input</label>
+					<input type="file" #file (change)="onFileChanged($event,file.files)" name="image"
+						id="exampleInputFile" ngModel > 
+					<img [src]="imgURL" height="200" *ngIf="imgURL">
+
+					<p class="help-block">Example block-level help text here.</p>
+				</div>
+				<div class="checkbox">
+					<label> <input type="checkbox"> Check me out </label>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+
+</div>

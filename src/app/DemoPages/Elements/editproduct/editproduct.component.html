@@ -1,0 +1,60 @@
+
+<div class="forms">
+  <h3 class="title1">Forms</h3>
+  <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+      <div class="form-title">
+          <h4>Basic Form :</h4>
+      </div>
+      <div class="form-body">
+          <form #f="ngForm" (ngSubmit)="onUpload(f)">
+              <div class="form-group">
+                  <label>Product Name</label>
+                  <input type="hidden" [(ngModel)]="product_id" name="product_id" ngModel />
+                  <input type="text" class="form-control" [(ngModel)]="product_name" name="product_name"  placeholder="Product Name"
+                      ngModel required="">
+              </div>
+
+              <div class="form-group">
+                  <label for="exampleInputFile">Product image</label>
+                  <input type="file" #file (change)="onFileChanged($event,file.files)" name="image"
+                      id="exampleInputFile" ngModel > 
+                  <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+              </div>
+              <div class="form-group">
+                  <label>Price before discount</label>
+                  
+                  <input type="text" class="form-control" [(ngModel)]="price_before_discount" name="price_before_discount"  placeholder="price_before_discount"
+                      ngModel required="">
+              </div>
+              <div class="form-group">
+                  <label>Discount Amount</label>
+                  
+                  <input type="text" class="form-control" [(ngModel)]="discount_amount" name="discount_amount"  placeholder="Discount amount"
+                      ngModel required="">
+              </div>
+              <div class="form-group">
+                  <label>Price after discount</label>
+                  
+                  <input type="text" class="form-control" ngModel="{{price_before_discount-(price_before_discount*discount_amount/100)}}" name="price_after_discount"  placeholder="Price after discount"
+                       required="">
+              </div>
+              <div class="form-group">
+                  <label>Total Quantity</label>
+                  
+                  <input type="text" class="form-control" [(ngModel)]="total_quantity" name="total_quantity"  placeholder="Total Quantity"
+                      ngModel required="">
+              </div>
+              <div class="form-group">
+                  <label>Valid Offer</label>
+                  
+                  <input type="text" class="form-control" [(ngModel)]="valid_offer" name="valid_offer"  placeholder="Valid Offer "
+                      ngModel required="">
+              </div>
+             
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+  </div>
+
+</div>

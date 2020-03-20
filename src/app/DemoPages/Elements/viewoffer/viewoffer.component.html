@@ -1,0 +1,38 @@
+
+        <div class="tables">
+          <h3 class="title1">Tables</h3>
+          <div class="panel-body widget-shadow">
+              <h4>Basic Table:</h4>
+             
+              <table class="table" >
+                  <thead>
+                      <tr >
+                        <th>Offer ID</th>
+                        <th>Offer Name</th>
+                        <th>Offer Image</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let c of arr">
+                        <td>{{c.offer_id}}</td>
+                        <td>{{c.offer_name}}</td>
+                        <td> <img src="http://localhost/Angular_services/images/{{c.offer_image}}" width="100" height="100" /></td>
+                        <td>
+                           <a [routerLink]="['/sellerlayout/editoffer',{offerid:c.offer_id}]"> 
+                            <button type="button" class="btn btn-primary">Edit</button>
+                          </a>
+                        </td>
+                           <td>
+                                  <a  (click)="deleteOffer(c.offer_id)">
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                        </a>
+                          </td> 
+                      </tr>
+                      
+                  </tbody>
+              </table>
+          </div>
+        
+        
+      </div>
+ 
